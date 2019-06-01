@@ -1,11 +1,107 @@
-<html>
-    <head>
-        <title>Home</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <h1>Welcome. This is home page.</h1>
-        <button class='btn btn-info' type="button" name="button">click</button>
-    </body>
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Начало</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/ionicons/css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/flaticons/font/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    
+    <header role="banner">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="home.html">Зелен щанд</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="home.html">Начало</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Магазин</a>
+                <div class="dropdown-menu" aria-labelledby="shopDropdown">
+                  <a class="dropdown-item" href="#">Плодове</a>
+                  <a class="dropdown-item" href="#">Зеленчуци</a>
+                  <a class="dropdown-item" href="#">Месо</a>
+                  <a class="dropdown-item" href="#">Яйца</a>
+                  <a class="dropdown-item" href="#">Млечни продукти</a>
+                  <a class="dropdown-item" href="#">Зърнени и бобови</a>
+                  <a class="dropdown-item" href="#">Билки</a>
+                </div>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item cta-btn">
+                <a class="nav-link" href="#">Профил</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <section class="home-slider owl-carousel">
+        <div class= "slider-item" style="background-image: url({% static 'img/bio.jpg' %});">
+        <div class="container">
+          <div class="row slider-text align-items-center justify-content-center">
+            <div class="col-md-8 text-center col-sm-12 element-animate">
+              <h1>Натурални продукти</h1>
+              <p class="mb-5">Разгледайте продуктите, които предлагат нашите фермери.</p>
+              <p><a href="#" class="btn btn-white btn-outline-white">Пазарувай</a></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class= "slider-item" style="background-image: url({% static 'img/farm_img2.jpg' %});">
+        <div class="container">
+          <div class="row slider-text align-items-center justify-content-center">
+            <div class="col-md-8 text-center col-sm-12 element-animate">
+              <h1>Отглеждане в естествени условия</h1>
+              <p class="mb-5">За всеки от продуктите е дадено и място на отглеждане.</p>
+              <p><a href="#" class="btn btn-white btn-outline-white">Пазарувай</a></p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </section>
+    <!-- END slider -->
+ 
+    <div id="loader" class="show fullscreen">
+    	<svg class="circular" width="48px" height="48px">
+    		<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+    		<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#cf1d16"/>
+    	</svg>
+	</div>
+
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/magnific-popup-options.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
 </html>
