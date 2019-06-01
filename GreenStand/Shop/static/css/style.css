@@ -64,6 +64,16 @@ textarea.form-control {
   background: #e9362f;
 }
 
+.shop-btn {
+  background:  #e9362f;
+  color: #ffffff;
+}
+
+.btn.shop-btn:hover, .btn.shop-btn:active, .btn.shop-btn:focus {
+  color: #ffffff;
+  font-weight: 600;
+}
+
 .btn.btn-sm {
   font-size: 12px;
 }
@@ -643,7 +653,7 @@ header .navbar .cta-btn a:hover {
 .owl-carousel.home-slider .slider-item .slider-text p, .owl-carousel.home-slider-loop-false .slider-item .slider-text p {
   font-size: 20px;
   line-height: 1.5;
-  font-weight: 300;
+  font-weight: 500;
   color: white;
 }
 
@@ -1132,6 +1142,10 @@ header .navbar .cta-btn a:hover {
   position: relative;
   overflow: hidden;
   text-align: center;
+}
+
+.description {
+  font-weight: 500;
 }
 
 @media (max-width: 991px) {
