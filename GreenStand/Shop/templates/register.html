@@ -1,13 +1,7 @@
-<!-- <html>
-    <head>
-        <title>Register</title>
-    </head>
-    <body>
-        <h1>Welcome. This is register page.</h1>
-    </body>
-</html> -->
-
-{% block content %}
+{% load static %}
+<!doctype html>
+<html>
+  {% block content %}
   <h2>Register</h2>
   <form method="post">
     {% csrf_token %}
@@ -26,3 +20,6 @@
     <button type="submit">Sign up</button>
   </form>
 {% endblock %}
+
+
+</html>

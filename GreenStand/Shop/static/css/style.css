@@ -26,6 +26,25 @@ h1, h2, h3, h4, h5 {
   color: #000;
 }
 
+.flex {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width:100%;
+  margin: 0 auto;
+  display: table;
+  padding: 20%;
+  vertical-align: middle;
+  text-align: center;
+}
+.flex-item {
+  margin-left: 20px;
+  display: block;
+  font-size: 30px;
+  position: relative;
+  top: 50%;
+}
+
 .btn, .form-control {
   outline: none;
   -webkit-box-shadow: none !important;
@@ -1321,6 +1340,11 @@ header .navbar .cta-btn a:hover {
   -webkit-animation: loader-dash 1.5s ease-in-out infinite;
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round;
+}
+
+#user{
+  width: 300px;
+  margin: 10px;
 }
 
 @-webkit-keyframes loader-rotate {
