@@ -63,10 +63,10 @@ def register(request,user_type):
             
     else:
         form = RegisterForm()
-# def user_login(request):
     return render(request, template, {'form': form})
 
-
+def login(request):
+    template = 'login.html'
 #     if request.method == 'POST':
 #         form = LoginForm(request.POST)
 #         if form.is_valid():
