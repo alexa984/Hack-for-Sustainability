@@ -81,3 +81,6 @@ def login(request):
 
 def add_item(request):
     pass
+
+def authorize(request):
+    return render(request, 'authorize.html')
