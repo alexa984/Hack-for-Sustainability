@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
 from django.template import loader
 from django.core.exceptions import ValidationError
@@ -11,7 +11,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from . import models
-from .forms import RegisterForm,FarmerRegisterForm,CustomerRegisterForm
+from .forms import RegisterForm,FarmerRegisterForm,CustomerRegisterForm,LoginForm
 from django.contrib.auth.hashers import PBKDF2PasswordHasher, make_password
 
 def home(request):
@@ -67,14 +67,14 @@ def register(request,user_type):
 
 def login(request):
     template = 'login.html'
-#     if request.method == 'POST':
-#         form = LoginForm(request.POST)
-#         if form.is_valid():
-#             username = form.cleaned_data.get('username')
-#             raw_password = form.cleaned_data.get('password')
-#             user = authenticate(username=username, password=raw_password)
-#             login(request, user)
-#             return redirect('home')
-#     else:
-#         form = LoginForm()
-#     return render(request, 'login.html', {'form': form})
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('')
+    else:
+        form = LoginForm()
+    return render(request, 'login.html', {'form': form})
