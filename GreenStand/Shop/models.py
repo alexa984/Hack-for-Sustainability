@@ -22,7 +22,7 @@ class Farmer(models.Model):
     address = models.CharField(max_length=100)
     phone = models.CharField(max_length=15)
     email = models.CharField(max_length=50)
-    cert_num = models.CharField(max_length=80)
+    certification_number = models.CharField(max_length=80)
 
     def __str__(self):
         return 'Farmer id: {id} with username: {username}'.format(id=self.farmer_id,username=self.username)

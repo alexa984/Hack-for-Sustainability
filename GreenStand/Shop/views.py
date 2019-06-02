@@ -11,65 +11,59 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from . import models
-from .forms import CustomerRegisterForm, LoginForm
-
-
+from .forms import RegisterForm,FarmerRegisterForm,CustomerRegisterForm
+from django.contrib.auth.hashers import PBKDF2PasswordHasher, make_password
 
 def home(request):
     return render(request, 'home.html')
 
-def customer_register(request):
+def register(request,user_type):
     template = 'register.html'
     if request.method == 'POST':
-        form = CustomerRegisterForm(request.POST)
+        if user_type == 'customer':
+            form = CustomerRegisterForm(request.POST)
+            user_class = models.Customer
+        elif user_type == 'farmer':
+            form = FarmerRegisterForm(request.POST)
+            user_class = models.Farmer
         if form.is_valid():
-            if models.Customer.objects.filter(username=form.cleaned_data['username']).exists():
+            if user_class.objects.filter(username=form.cleaned_data['username']).exists():
                 return render(request, template, {
                     'form': form,
                     'error_message': 'Username already exists.'
                 })
-            elif models.Customer.objects.filter(email=form.cleaned_data['email']).exists():
+            elif user_class.objects.filter(email=form.cleaned_data['email']).exists():
                 return render(request, template, {
                     'form': form,
                     'error_message': 'Email already exists.'
                 })
-            elif form.cleaned_data['password1'] != form.cleaned_data['password2']:
+            elif form.cleaned_data['password'] != form.cleaned_data['confirm_password']:
                 return render(request, template, {
                     'form': form,
                     'error_message': 'Passwords do not match.'
                 })
             else:
-                # Create the user:
-                customer = models.Customer.objects.create(
+                user = user_class.objects.create(
                     username=form.cleaned_data['username'],
-                    password=form.cleaned_data['password1'],
+                    password=make_password(form.cleaned_data['password'],salt='sha1-7',hasher='pbkdf2_sha256'),
                     first_name=form.cleaned_data['first_name'],
                     last_name=form.cleaned_data['last_name'],
                     address=form.cleaned_data['address'],
                     phone=form.cleaned_data['phone'],
                     email=form.cleaned_data['email'],
                 )
-                # user.first_name = form.cleaned_data['first_name']
-                # user.last_name = form.cleaned_data['last_name']
-                # user.phone_number = form.cleaned_data['phone_number']
-                # user.save()
-               
-                # Login the user
-                # login(request, customer)
-               
-                # redirect to accounts page:
+                if user_type =='farmer':
+                    user.certification_number = form.cleaned_data['certification_number']
+                    user.save()
+                
                 return redirect('home')
-            # form.save()
-            # username = form.cleaned_data.get('username')
-            # raw_password = form.cleaned_data.get('password')
-            # user = authenticate(username=username, password=raw_password)
-            # login(request, user)
-            # return redirect('home')
+            
     else:
-        form = CustomerRegisterForm()
-    return render(request, 'register.html', {'form': form})
-
+        form = RegisterForm()
 # def user_login(request):
+    return render(request, template, {'form': form})
+
+
 #     if request.method == 'POST':
 #         form = LoginForm(request.POST)
 #         if form.is_valid():

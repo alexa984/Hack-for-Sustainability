@@ -4,10 +4,10 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from . import models 
 
-class CustomerRegisterForm(ModelForm):
+class RegisterForm(ModelForm):
     username = forms.CharField(max_length=50, required=True, help_text='*')
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}),help_text='*')
+    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}),help_text='*')
     first_name = forms.CharField(max_length=20, required=True, help_text='*')
     last_name = forms.CharField(max_length=20, required=True, help_text='*')
     email = forms.EmailField(max_length=50, required=True, help_text='*',
@@ -17,7 +17,21 @@ class CustomerRegisterForm(ModelForm):
 
     class Meta:
         model = models.Customer
-        fields = ('username',  'password1', 'password2', 'first_name', 'last_name', 'email', 'phone', 'address')
+        fields = ('username',  'password', 'confirm_password', 'first_name', 'last_name', 'email', 'phone', 'address')
+
+
+class CustomerRegisterForm(RegisterForm):
+    pass
+    # class Meta:
+    #     model = models.Customer
+    #     fields = ('username',  'password', 'confirm_password', 'first_name', 'last_name', 'email', 'phone', 'address')
+
+class FarmerRegisterForm(RegisterForm):
+    certification_number = forms.CharField(max_length=80,required=True,help_text='*')
+
+    class Meta(RegisterForm.Meta):
+        model = models.Farmer
+        fields = RegisterForm.Meta.fields + ('certification_number',)
 
 class LoginForm(AuthenticationForm):
 
