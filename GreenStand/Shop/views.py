@@ -78,3 +78,6 @@ def login(request):
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
+
+def add_item(request):
+    pass
