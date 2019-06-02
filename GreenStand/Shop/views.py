@@ -78,3 +78,7 @@ def login(request):
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
+
+
+def authorize(request):
+    return render(request, 'authorize.html')
