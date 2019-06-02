@@ -14,10 +14,11 @@ from . import models
 from .forms import SignUpForm
 
 
+
 def home(request):
     return render(request, 'home.html')
 
-def register(request):
+def register(generic.CreateView):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -27,6 +28,6 @@ def register(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('home')
-    else:
-        form = SignUpForm()
+    
+    form = SignUpForm()
     return render(request, 'register.html', {'form': form})
