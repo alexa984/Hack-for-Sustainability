@@ -18,6 +18,9 @@ from .forms import CustomerRegisterForm, LoginForm
 def home(request):
     return render(request, 'home.html')
 
+def register_as(request):
+    return render(request, 'register_as.html')
+
 def customer_register(request):
     template = 'register.html'
     if request.method == 'POST':
