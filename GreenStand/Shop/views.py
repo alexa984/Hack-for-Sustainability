@@ -17,6 +17,9 @@ from django.contrib.auth.hashers import PBKDF2PasswordHasher, make_password
 def home(request):
     return render(request, 'home.html')
 
+def register_as(request):
+    return render(request, 'register_as.html')
+
 def register(request,user_type):
     template = 'register.html'
     if request.method == 'POST':
