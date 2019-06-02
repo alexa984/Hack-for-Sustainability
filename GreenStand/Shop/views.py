@@ -30,7 +30,7 @@ def register(request,user_type):
             form = FarmerRegisterForm(request.POST)
             user_class = models.Farmer
         if form.is_valid():
-            if user_class.objects.filter(username=form.cleaned_data['username']).exists():
+            if models.Customer.objects.filter(username=form.cleaned_data['username']).exists() and models.Farmer.objects.filter(username=form.cleaned_data['username']).exists():
                 return render(request, template, {
                     'form': form,
                     'error_message': 'Username already exists.'
