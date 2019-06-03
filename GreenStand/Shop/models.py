@@ -21,7 +21,7 @@ class Item(models.Model):
     origin = models.CharField(max_length=100)
     unit_price = models.DecimalField(max_digits=5,decimal_places=2)
     unit_quantity = models.IntegerField()
-    photo = models.ImageField()
+    photo = models.ImageField(upload_to="gallery")
     description = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

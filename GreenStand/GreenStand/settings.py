@@ -130,3 +130,6 @@ PASSWORD_HASHERS = [
 # STATICFILES_DIRS = [
 #     "home/alexandra/Documents/Hack-for-Sustainability/GreenStand/Shop/static",
 # ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
