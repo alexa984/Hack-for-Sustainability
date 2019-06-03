@@ -1,14 +1,96 @@
-{% if next %}
-<form action="/login/?next={{next}}" method="post" >
-{%else%}
-<form action="/login/" method="post" >
-{% endif %}
-        {% csrf_token %}
-        username:
-        <input type="text" name="username" value="{{ username }}" /><br />
-        password:
-        <input type="password" name="password" value="" /><br />
+{% load static %}
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Начало</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
+            
+                <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+                <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+                <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+                <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+                <link rel="stylesheet" href="{% static 'fonts/ionicons/css/ionicons.min.css' %}">
+                <link rel="stylesheet" href="{% static 'fonts/fontawesome/css/font-awesome.min.css' %}">
+                <link rel="stylesheet" href="{% static 'fonts/flaticons/font/flaticon.css' %}">
+                <link rel="stylesheet" href="{% static 'css/style.css' %}">
+              </head>
 
-        <input type="submit" value="Log In"/>
+              <body style="background-image: url({% static 'img/bio.png' %});">
+                
+                <header role="banner">
+                  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                    <div class="container">
+                      <a class="navbar-brand" href="http://localhost:8000/">Зелен щанд</a>
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+            
+                      <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" href="http://localhost:8000/">Начало</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="http://localhost:8000/catalog/" id="shopDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Магазин</a>
+                            <div class="dropdown-menu" aria-labelledby="shopDropdown">
+                              <a class="dropdown-item" href="http://localhost:8000/catalog/">Всички</a>
+                              <a class="dropdown-item" href="http://localhost:8000/catalog/fruits">Плодове</a>
+                              <a class="dropdown-item" href="http://localhost:8000/catalog/vegetables">Зеленчуци</a>
+                              <a class="dropdown-item" href="http://localhost:8000/catalog/meat">Месо</a>
+                              <a class="dropdown-item" href="http://localhost:8000/catalog/eggs">Яйца</a>
+                              <a class="dropdown-item" href="http://localhost:8000/catalog/dairy">Млечни продукти</a>
+                              <a class="dropdown-item" href="http://localhost:8000/catalog/beans-and-grains">Зърнени и бобови</a>
+                              <a class="dropdown-item" href="http://localhost:8000/catalog/herbs">Билки</a>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+                </header>
+                
+                {% block content %}
+                
+                    <div class="container col-md-10 flex">
+                        {% if next %}
+                        <form action="/login/?next={{next}}" method="post" >
+                        {%else%}
+                        <form action="/login/" method="post" >
+                        {% endif %}
+                        {% csrf_token %}
+                        <p>Username:</p>
+                        <input type="text" name="username" value="{{ username }}" /><br />
+                        <p>Password:</p>
+                        <input type="password" name="password" value="" /><br />
+                        <input type="submit" class='btn-success' value="Log In"/>
 
-    </form>
+                        </form>
+
+                    </div>
+                
+                {% endblock %}
+
+             
+                <div id="loader" class="show fullscreen">
+                    <svg class="circular" width="48px" height="48px">
+                        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#aaffaa"/>
+                        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#aaffaa"/>
+                    </svg>
+                </div>
+
+
+
+
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'js/magnific-popup-options.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

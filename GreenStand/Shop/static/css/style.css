@@ -26,6 +26,10 @@ h1, h2, h3, h4, h5 {
   color: #000;
 }
 
+input{
+  margin-bottom: 20px;
+}
+
 .cart{
   padding: 1.7rem 1rem;
 }
