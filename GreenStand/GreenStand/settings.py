@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'Shop.apps.ShopConfig',
+    'Cart.apps.CartConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,3 +131,4 @@ PASSWORD_HASHERS = [
 # STATICFILES_DIRS = [
 #     "home/alexandra/Documents/Hack-for-Sustainability/GreenStand/Shop/static",
 # ]
+CART_SESSION_ID = 'cart'
