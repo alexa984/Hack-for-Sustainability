@@ -47,22 +47,38 @@
                             </div>
                           </li>
                         </ul>
-            
-                        <!-- <ul class="navbar-nav ml-auto">
-                          <li class="nav-item cta-btn">
-                            <a class="nav-link" href="http://localhost:8000/authorize/">Профил</a>
-                          </li>
-                        </ul> -->
-                        
+
+                        <div id="subheader">
+                            <div class="cart">
+                                Количката Ви е празна
+                            </div>
+                        </div>
                       </div>
                     </div>
                   </nav>
                 </header>
                 
-                <div id="content">
-                        {% block content %}
-                        {% endblock %}
-                </div>
+                {% block content %}
+                <section class="section bg-light element-animate">
+                        <div class="container">
+                        {% for item in items %}
+                          <div class="row no-gutters">
+                            <div class="col-md-6">
+                              <div class="sched d-block d-lg-flex">
+                                <div class="bg-image order-2" style="background-image: {{ item.photo }}"></div>
+                                    <div class="text order-1">
+                                        <h3>{{ item.name }}</h3>
+                                        <p>{{ item.unit_price }}</p>
+                                        <p class="text-primary h3">$12.00</p>
+                                    </div>
+                                
+                                </div>
+                            </div>     
+                          </div>
+                        {% endfor %}
+                        </div>
+                </section>
+                {% endblock %}
 
              
                 <div id="loader" class="show fullscreen">

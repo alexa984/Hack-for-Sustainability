@@ -12,17 +12,15 @@ def item_list(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         items = items.filter(category=category)
-        return render(request,
-            template,
-            {'category': category,
-            'categories': categories,
-            'items': items})
-    else:
-        return render(request,
-            template,
-            {'category': category,
-            'categories': categories,
-            'items': items})
+
+    return render(request,
+        template,
+        {
+                'category': category,
+                'categories': categories,
+                'items': items
+        }
+        )
 
 
 def item_detail(request, id, slug):
