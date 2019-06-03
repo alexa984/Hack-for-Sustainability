@@ -60,20 +60,25 @@
                 
                 {% block content %}
                 <section class="section row">
-                    <div class="container">
+                    <div class="container col-md-10">
                         {% for item in items %}
                           <div class="row no-gutters item-row">
                               <div class="col-md-3 sched d-block d-lg-flex">
                                     <div class="text order-1">
                                         <h3>{{ item.name }}</h3>
                                         <p>{{ item.unit_price }}</p>
-                                        <a href="http://localhost:8000/cart/add/3" class="btn btn-success" role="button">Добави</a>
+                                        <a href="http://localhost:8000/cart/add/{{item.slug}}/" class="btn btn-success" role="button">Добави</a> 
+                                      </div>
+                                </div>
+                                <div class="col-md-4 sched d-block d-lg-flex">
+                                    <div class="text order-1">
+                                      {{item.description}}
                                     </div>
                                 </div>
                                 <div class="col-md-3 sched d-block d-lg-flex">
                                     <img class='item-img img-rounded' src="{{ item.photo.url }}" />
                                 </div>
-        
+                        </div>
                         {% endfor %}
                     </div>
                 </section>

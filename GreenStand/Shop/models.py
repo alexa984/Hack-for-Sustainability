@@ -19,6 +19,7 @@ class Category(models.Model):
 
 class Item(models.Model):
     item_id = models.AutoField(primary_key=True)
+    item_id.editable = True
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
     producer = models.CharField(max_length=100)

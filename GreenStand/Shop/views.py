@@ -1,11 +1,13 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, loader
 from .models import Category, Item
+from django.http import HttpResponse
+from django.template import RequestContext
 
 def home(request):
     return render(request,'home.html')
 
 def item_list(request, category_slug=None):
-    template = 'catalog.html'
+    template = loader.get_template('catalog.html')
     category = None
     categories = Category.objects.all()
     items = Item.objects.filter(available=True)
@@ -13,14 +15,14 @@ def item_list(request, category_slug=None):
         category = get_object_or_404(Category, slug=category_slug)
         items = items.filter(category=category)
 
-    return render(request,
-        template,
-        {
+    context = {
                 'category': category,
                 'categories': categories,
                 'items': items
         }
-        )
+
+    return HttpResponse(template.render(context))
+
 
 
 def item_detail(request, id, slug):

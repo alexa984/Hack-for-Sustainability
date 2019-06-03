@@ -5,9 +5,9 @@ from .cart import Cart
 from .forms import CartAddItemForm
 
 @require_POST
-def cart_add(request, item_id):
+def cart_add(request, slug_item):
     cart = Cart(request)
-    item = get_object_or_404(Item, id=item_id)
+    item = get_object_or_404(Item, slug=slug_item)
     form = CartAddItemForm(request.POST)
     
     if form.is_valid():
@@ -16,7 +16,8 @@ def cart_add(request, item_id):
                 quantity=cd['quantity'],
                 update_quantity=cd['update'])
     
-    return redirect('Cart:cart_detail')
+    return redirect(request.META.get('HTTP_REFERER'))
+    
 
 def cart_remove(request, item_id):
     cart = Cart(request)
@@ -33,8 +34,8 @@ def cart_detail(request):
                             initial={'quantity': item['quantity'], 'update': True})
     return render(request, template, {'cart': cart})
 
-def item_detail(request, id, slug):
-    template = 'Shop/item/detail.html'
-    product = get_object_or_404(Item, id=id, slug=slug,  available=True)
+def item_detail(request, item_id, slug):
+    template = 'Shop/template/detail.html'
+    product = get_object_or_404(Item, id=item_id, slug=slug,  available=True)
     cart_item_form = CartAddItemForm()
-    return render(request, {'product': product,'cart_item_form': cart_item_form})
+    return render(request, template, {'product': product,'cart_item_form': cart_item_form})

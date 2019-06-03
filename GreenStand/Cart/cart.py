@@ -32,7 +32,7 @@ class Cart:
 
     def __iter__(self):
         item_ids = self.cart.keys()
-        items = Item.objects.filter(id__in=item_ids)
+        items = Item.objects.filter(item_id__in=item_ids)
         cart = self.cart.copy()
         for item in items:
             cart[str(item.item_id)]['item'] = item
