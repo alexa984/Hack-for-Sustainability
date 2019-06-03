@@ -20,7 +20,7 @@ def home(request):
 def register_as(request):
     return render(request, 'register_as.html')
 
-def register(request,user_type):
+def register(request, user_type):
     template = 'register.html'
     if request.method == 'POST':
         if user_type == 'customer':
