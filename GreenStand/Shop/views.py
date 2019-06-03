@@ -74,7 +74,7 @@ def login(request):
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('')
+            return redirect('home')
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
