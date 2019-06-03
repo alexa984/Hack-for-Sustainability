@@ -36,4 +36,3 @@ class Item(models.Model):
     def __str__(self):
         return 'Item id : {item_id} with price :{price} '.format(item_id=self.item_id,price = self.unit_price)
 
-
