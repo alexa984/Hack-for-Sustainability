@@ -5,7 +5,7 @@ def home(request):
     return render(request,'home.html')
 
 def item_list(request, category_slug=None):
-    template = 'Shop/item/list.html'
+    template = 'catalog.html'
     category = None
     categories = Category.objects.all()
     items = Item.objects.filter(available=True)
@@ -17,6 +17,13 @@ def item_list(request, category_slug=None):
             {'category': category,
             'categories': categories,
             'items': items})
+    else:
+        return render(request,
+            template,
+            {'category': category,
+            'categories': categories,
+            'items': items})
+
 
 def item_detail(request, id, slug):
     template = 'Shop/item/detail.html'
