@@ -79,6 +79,8 @@ def login(request):
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
 
+def add_item(request):
+    pass
 
 def authorize(request):
     return render(request, 'authorize.html')
