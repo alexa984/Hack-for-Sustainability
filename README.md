@@ -5,11 +5,11 @@ Green Stand is the final project for HackBulgaria's course Programming101 with P
 The hackathon's heading was Hack for Sustainability.
 Our project is a django website granting connection between little farmers and eco-friendly people who like eating fresh food.
 
-## Usage
-
--pip install django
--go to GreenStand folder and run python3 manage.py runserver
--open your localhost in browser
+Usage
+------
+- pip install django
+- go to GreenStand folder and run python3 manage.py runserver
+- open your localhost in browser
 
 ##Roadmap
 
