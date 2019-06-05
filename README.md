@@ -7,9 +7,9 @@ Our project is a django website granting connection between little farmers and e
 
 ## Usage
 
-pip install django
-go to GreenStand folder and run python3 manage.py runserver
-open your localhost in browser
+-pip install django
+-go to GreenStand folder and run python3 manage.py runserver
+-open your localhost in browser
 
 ##Roadmap
 
