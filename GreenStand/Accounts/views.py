@@ -40,7 +40,7 @@ def register(request, user_type):
                     'error_message': 'Passwords do not match.'
                 })
             else:
-                account = Account.objects.create(
+                account = models.Account.objects.create(
                     username=form.cleaned_data['username'],
                     password=make_password(form.cleaned_data['password'],salt='sha1-7',hasher='pbkdf2_sha256'),
                     first_name=form.cleaned_data['first_name'],
