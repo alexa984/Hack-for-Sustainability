@@ -9,7 +9,6 @@
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
             
                 <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-                <link rel="stylesheet" href="{% static 'css/animate.css' %}">
                 <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
                 <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
                 <link rel="stylesheet" href="{% static 'fonts/ionicons/css/ionicons.min.css' %}">
@@ -46,12 +45,6 @@
                               </div>
                             </li>
                           </ul>
-              
-                          <ul class="navbar-nav ml-auto">
-                            <li class="nav-item cta-btn">
-                              <a class="nav-link" href="#">Профил</a>
-                            </li>
-                          </ul>
                           
                         </div>
                       </div>
@@ -61,14 +54,15 @@
         <div class="flex">
                 <h2 style="color:aliceblue">Влез</h2>
                 <br>
-                <form action="http://localhost:8000/login" class="flex-item">
+                <form action="http://localhost:8000/profile/login/" class="flex-item">
                   <button class="button shop-btn" id="user">Влез</button>
                 </form>
               
-                <form action="http://localhost:8000/register_as" class="flex-item">
+                <form action="http://localhost:8000/profile/register_as/" class="flex-item">
                   <button class="button shop-btn" id="user">Регистрирай се</button>
                 </form>
         </div>
+        
         <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
         <script src="{% static 'js/main.js' %}"></script>
         </body>

@@ -5,23 +5,9 @@ from django.template import RequestContext
 
 def home(request):
     return render(request,'home.html')
-
+    
 def authorize(request):
         return render(request, 'authorize.html')
-
-def login(request):
-        #give a form to the template
-        return render(request, 'login.html')
-
-def register_as(request):
-        # <form method='post'>
-        #         {% csrf_token %}
-        #         {{form.as_p}}
-
-        #         <input type='submit' name='Create user'/>
- 
-        # </form>
-        return render(request, 'register_as.html')
 
 def item_list(request, category_slug=None):
     template = loader.get_template('catalog.html')
