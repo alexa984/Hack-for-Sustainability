@@ -9,7 +9,6 @@
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
             
                 <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-                <link rel="stylesheet" href="{% static 'css/animate.css' %}">
                 <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
                 <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
                 <link rel="stylesheet" href="{% static 'fonts/ionicons/css/ionicons.min.css' %}">
@@ -63,7 +62,7 @@
                     <div class="container col-md-10">
                         {% for item in items %}
                           <div class="row no-gutters item-row">
-                              <div class="col-md-3 sched d-block d-lg-flex">
+                              <div class="col-md-3 sched d-block d-lg-flex rounded-left">
                                     <div class="text order-1">
                                         <h3>{{ item.name }}</h3>
                                         <p>{{ item.unit_price }}</p>
@@ -92,16 +91,7 @@
                     </svg>
                 </div>
 
-
-
-
-        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-        <script src="{% static 'js/popper.min.js' %}"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-        <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
-        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-        <script src="{% static 'js/magnific-popup-options.js' %}"></script>
-        <script src="{% static 'js/main.js' %}"></script>
+                <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+                <script src="{% static 'js/main.js' %}"></script>
     </body>
 </html>

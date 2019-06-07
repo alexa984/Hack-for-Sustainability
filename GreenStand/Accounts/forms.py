@@ -12,8 +12,7 @@ class RegisterForm(ModelForm):
         widget=forms.EmailInput(attrs={'class':'form-control'}))
     phone = forms.CharField(max_length=15, required=True, help_text='*')
     address = forms.CharField(max_length=100, required=True, help_text='*')
-    is_farmer = forms.BooleanField(default=False)
 
     class Meta:
         model = models.Account
-        fields = ('username',  'password', 'confirm_password', 'first_name', 'last_name', 'email', 'phone', 'address', 'is_farmer')
+        fields = ('username',  'password', 'confirm_password', 'first_name', 'last_name', 'email', 'phone', 'address')

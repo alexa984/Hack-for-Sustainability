@@ -13,6 +13,4 @@ urlpatterns = [
     path('<int:id>/<slug:slug>/', views.item_detail,
         name='item_detail'),
     path('authorize/', views.authorize, name='authorize'),
-    path('login/', views.login, name='login'),
-    path('register_as/', views.register_as, name='register_as')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

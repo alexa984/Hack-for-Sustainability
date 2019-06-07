@@ -21,10 +21,11 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
+    path('', include('Shop.urls',namespace = 'Shop')),
     path('admin/', admin.site.urls),
     path('cart/', include('Cart.urls', namespace='Cart')),
     path('orders/', include('Orders.urls', namespace='Orders')),
-    path('', include('Shop.urls',namespace = 'Shop'))
+    path('profile/', include('Accounts.urls', namespace = 'Accounts'))
 ]
 
 urlpatterns += staticfiles_urlpatterns()

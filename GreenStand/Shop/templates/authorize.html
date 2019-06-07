@@ -9,7 +9,6 @@
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
             
                 <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-                <link rel="stylesheet" href="{% static 'css/animate.css' %}">
                 <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
                 <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
                 <link rel="stylesheet" href="{% static 'fonts/ionicons/css/ionicons.min.css' %}">
@@ -33,22 +32,17 @@
                               <a class="nav-link active" href="http://localhost:8000/">Начало</a>
                             </li>
                             <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Магазин</a>
+                              <a class="nav-link dropdown-toggle" href="http://localhost:8000/catalog/" id="shopDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Магазин</a>
                               <div class="dropdown-menu" aria-labelledby="shopDropdown">
-                                <a class="dropdown-item" href="#">Плодове</a>
-                                <a class="dropdown-item" href="#">Зеленчуци</a>
-                                <a class="dropdown-item" href="#">Месо</a>
-                                <a class="dropdown-item" href="#">Яйца</a>
-                                <a class="dropdown-item" href="#">Млечни продукти</a>
-                                <a class="dropdown-item" href="#">Зърнени и бобови</a>
-                                <a class="dropdown-item" href="#">Билки</a>
+                                <a class="dropdown-item" href="http://localhost:8000/catalog/">Всички</a>
+                                <a class="dropdown-item" href="http://localhost:8000/catalog/fruits">Плодове</a>
+                                <a class="dropdown-item" href="http://localhost:8000/catalog/vegetables">Зеленчуци</a>
+                                <a class="dropdown-item" href="http://localhost:8000/catalog/meat">Месо</a>
+                                <a class="dropdown-item" href="http://localhost:8000/catalog/eggs">Яйца</a>
+                                <a class="dropdown-item" href="http://localhost:8000/catalog/dairy">Млечни продукти</a>
+                                <a class="dropdown-item" href="http://localhost:8000/catalog/beans-and-grains">Зърнени и бобови</a>
+                                <a class="dropdown-item" href="http://localhost:8000/catalog/herbs">Билки</a>
                               </div>
-                            </li>
-                          </ul>
-              
-                          <ul class="navbar-nav ml-auto">
-                            <li class="nav-item cta-btn">
-                              <a class="nav-link" href="#">Профил</a>
                             </li>
                           </ul>
                           
@@ -60,12 +54,16 @@
         <div class="flex">
                 <h2 style="color:aliceblue">Влез</h2>
                 <br>
-                <form action="http://localhost:8000/login" class="flex-item">
+                <form action="http://localhost:8000/profile/login/" class="flex-item">
                   <button class="button shop-btn" id="user">Влез</button>
                 </form>
               
-                <form action="http://localhost:8000/register_as" class="flex-item">
+                <form action="http://localhost:8000/profile/register_as/" class="flex-item">
                   <button class="button shop-btn" id="user">Регистрирай се</button>
                 </form>
         </div>
+        
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        </body>
 </html> 
