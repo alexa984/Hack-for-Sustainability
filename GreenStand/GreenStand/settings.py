@@ -139,3 +139,5 @@ MEDIA_URL = '/media/'
 
 CART_SESSION_ID = 'cart'
 
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+
